@@ -3,6 +3,8 @@ const apiCallFromNode = require('./NodeJsCall')
 
 const http = require('http')
 
+
+// https://www.npmjs.com/package/request
 http.createServer((req, res) => {
         if(req.url === "/request"){
             apiCallFromRequest.callApi(function(response){
@@ -11,12 +13,7 @@ http.createServer((req, res) => {
                 res.end();
             });
         }
-        else if(req.url === "/node"){
-            apiCallFromNode.callApi(function(response){
-                res.write(response);
-                res.end();
-            });
-        }
+       
         
         // res.end();
 }).listen(3000);
